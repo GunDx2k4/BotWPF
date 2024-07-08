@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:BotWPF.Views"
              xmlns:properties="clr-namespace:BotWPF.Properties"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              TextElement.Foreground="{DynamicResource MaterialDesign.Brush.Foreground}"
              Background="{DynamicResource MaterialDesign.Brush.Secondary}"
              TextElement.FontWeight="Medium"
@@ -14,8 +15,8 @@
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
              mc:Ignorable="d" 
+             Name="vMain"
              Height="650" Width="1200">
-    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
@@ -33,26 +34,52 @@
             </StackPanel>
         </Grid>
 
+        <Grid Grid.Row="1" Margin="10">
+            <materialDesign:Card Grid.Column="1" UniformCornerRadius="10"
+                                 materialDesign:ElevationAssist.Elevation="Dp0">
+                <TabControl materialDesign:ColorZoneAssist.Mode="Dark"
+                            materialDesign:ElevationAssist.Elevation="Dp0"
+                            Style="{StaticResource MaterialDesignNavigationRailTabControl}">
+                    <TabItem Width="100">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24"
+                                                         HorizontalAlignment="Center"
+                                                         Kind="Cog" Margin="0 0 0 5"/>
+                                <TextBlock HorizontalAlignment="Center" Text="Settings"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
 
-        <Grid Grid.Row="1" >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
+                    <TabItem Width="100">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24"
+                                                         HorizontalAlignment="Center"
+                                                         Kind="AccountMultiple"/>
+                                <TextBlock HorizontalAlignment="Center" Text="Guilds"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
 
-                <Grid Grid.Column="0">
+                    <TabItem Width="100">
+                        <TabItem.Header>
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24"
+                                                         HorizontalAlignment="Center"
+                                                         Kind="AppleKeyboardCommand" />
+                                <TextBlock HorizontalAlignment="Center" Text="Commands"/>
+                            </StackPanel>
+                        </TabItem.Header>
+                    </TabItem>
 
-                </Grid>
+                </TabControl>
 
-                <materialDesign:Card Grid.Column="1" UniformCornerRadius="10"
-                                     Margin="10" materialDesign:ElevationAssist.Elevation="Dp0" 
-                                     Background="{DynamicResource MaterialDesign.Brush.Secondary.Light}">
-                    <Grid>
-                        
-                    </Grid>
-                </materialDesign:Card>
-            </Grid>
+            </materialDesign:Card>
+
+            <materialDesign:Snackbar MessageQueue="{Binding BoundMessageQueue}" 
+                     x:Name="Snackbar"
+                     HorizontalAlignment="Stretch"/>
         </Grid>
     </Grid>
 </UserControl>

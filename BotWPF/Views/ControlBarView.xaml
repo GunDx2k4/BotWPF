@@ -16,40 +16,38 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
-    <Grid>
-        <materialDesign:ColorZone materialDesign:ElevationAssist.Elevation="Dp0" 
-                                  Mode="SecondaryDark">
-            <DockPanel>
-                <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="10 0 0 0" 
-                            Orientation="Horizontal" HorizontalAlignment="Right"
-                            ToolTip="Bot Discord Manager">
-                    <Image Height="20" Width="20" Margin="0 0 10 0" Source="{Binding Source={x:Static properties:Resources.app}}"/>
-                    <TextBlock Name="textTitle" Text="Bot Discord Manager" Margin="0 2 0 0"/>
-                </StackPanel>
-                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <StackPanel.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Margin" Value="2 4 2 4"></Setter>
-                            <Setter Property="Width" Value="40"></Setter>
-                        </Style>
-                    </StackPanel.Resources>
-                    <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                 Command="{Binding MinimizeWindowCommand}" CommandParameter="{Binding ElementName=vControlBar}"
-                 ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded"
-                 Background="Transparent" BorderBrush="Transparent">
-                        <materialDesign:PackIcon Kind="WindowMinimize"
-                                      Width="20" Height="20"/>
-                    </Button>
-                    <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                 Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=vControlBar}"
-                 ToolTip="Close" ToolBar.OverflowMode="AsNeeded"
-                 Background="Transparent" BorderBrush="Transparent">
-                        <materialDesign:PackIcon Kind="WindowClose"
-                                      Width="20" Height="20"/>
-                    </Button>
-                </StackPanel>
-            </DockPanel>
+    <materialDesign:ColorZone materialDesign:ElevationAssist.Elevation="Dp0" 
+                          Mode="SecondaryDark">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Left" VerticalAlignment="Center" Margin="10 0 0 0" 
+                    Orientation="Horizontal" HorizontalAlignment="Right"
+                    ToolTip="Bot Discord Manager">
+                <Image Height="20" Width="20" Margin="0 0 10 0" Source="{Binding Source={x:Static properties:Resources.app}}"/>
+                <TextBlock Name="textTitle" Text="Bot Discord Manager" Margin="0 2 0 0"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="2 4 2 4"></Setter>
+                        <Setter Property="Width" Value="40"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                        Command="{Binding MinimizeWindowCommand}" CommandParameter="{Binding ElementName=vControlBar}"
+                        ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded"
+                        Background="Transparent" BorderBrush="Transparent">
+                    <materialDesign:PackIcon Kind="WindowMinimize"
+                              Width="20" Height="20"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                        Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=vControlBar}"
+                        ToolTip="Close" ToolBar.OverflowMode="AsNeeded"
+                        Background="Transparent" BorderBrush="Transparent">
+                    <materialDesign:PackIcon Kind="WindowClose"
+                                             Width="20" Height="20"/>
+                </Button>
+            </StackPanel>
+        </DockPanel>
 
-        </materialDesign:ColorZone>
-    </Grid>
+    </materialDesign:ColorZone>
 </UserControl>

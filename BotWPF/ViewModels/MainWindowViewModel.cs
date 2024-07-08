@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
+using MaterialDesignThemes.Wpf;
 
 namespace BotWPF.ViewModels
 {
@@ -22,6 +23,7 @@ namespace BotWPF.ViewModels
 
         private readonly NavigationMainView _mainView;
 
+        public SnackbarMessageQueue BoundMessageQueue => _mainView.BoundMessageQueue;
         public ICommand SizeChangedCommand { get; set; }
 
         public MainWindowViewModel()

@@ -43,6 +43,7 @@
                     CommandParameter="{Binding DataContext , RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                     Content="Login"/>
                 </StackPanel>
+                
             </Grid>
         </materialDesign:Card>
     </Grid>

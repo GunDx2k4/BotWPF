@@ -20,12 +20,12 @@
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
-        Name="vMain"
+        Name="vWindow"
         mc:Ignorable="d">
     
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="SizeChanged">
-            <i:InvokeCommandAction Command="{Binding SizeChangedCommand}" CommandParameter="{Binding ElementName=vMain}"/>
+            <i:InvokeCommandAction Command="{Binding SizeChangedCommand}" CommandParameter="{Binding ElementName=vWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -39,26 +39,23 @@
 
             <Grid.Resources>
                 <DataTemplate DataType="{x:Type vms:LoginViewModel}">
-                    <Grid Grid.Row="1" x:Name="mainView" Margin="0 32 0 0">
+                    <Grid Grid.Row="1" Name="mainView" Margin="0 32 0 0">
                         <views:LoginView/>
                     </Grid>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type vms:MainViewModel}">
-                    <Grid Grid.Row="1" x:Name="mainView" Margin="0 32 0 0">
+                    <Grid Grid.Row="1" Name="mainView" Margin="0 32 0 0">
                         <views:MainView/>
                     </Grid>
                 </DataTemplate>
             </Grid.Resources>
 
             <ContentControl Content="{Binding CurrentViewModel}" />
-
-            <Grid Grid.Row="0">
-                <views:ControlBarView DataContext="{Binding ControlBarViewModel}"/>
-            </Grid>
             
-            <views:DialogView DataContext="{Binding DialogViewModel}"
-                              Height="{Binding ElementName=mainView, Path=ActualHeight}" 
-                              Width="{Binding ElementName=mainView, Path=ActualWidth}"/>
+            <views:ControlBarView Grid.Row="0" DataContext="{Binding ControlBarViewModel}"/>
+
+
+            <views:DialogView DataContext="{Binding DialogViewModel}"/>
 
         </Grid>
     </materialDesign:Card>

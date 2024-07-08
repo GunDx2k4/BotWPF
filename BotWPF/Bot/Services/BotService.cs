@@ -24,8 +24,8 @@ namespace BotWPF.Bot.Services
             await _client.SetActivityAsync(new Game("BOT Quản lý , hỗ trợ những việc linh tinh ..... Code By C# Owner : GunDx(dungdzk4#8028)"));
             BotDiscord.gI().IsStarted = true;
 
-            DialogViewModel.Instance.OpenDialog($"Connected to BOT {BotDiscord.gI().ClientBot.CurrentUser.Username}");
             NavigationMainView.Instance.createMainView();
+            DialogViewModel.Instance.CloseDialog();
         }
 
         public Task ConnectedClientAsync()

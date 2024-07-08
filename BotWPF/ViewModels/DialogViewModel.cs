@@ -1,4 +1,5 @@
 ﻿using BotWPF.Base;
+using Discord;
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -90,6 +91,13 @@ namespace BotWPF.ViewModels
                 model.IsOpenDialog = false;
                 return;
             }
+        }
+
+        public void CloseDialog()
+        {
+            IsOpenDialog = false;
+            Message = string.Empty;
+            IsCanClose = true;
         }
 
         public void OpenDialog(string message,bool isCanClose = true)

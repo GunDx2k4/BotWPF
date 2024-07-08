@@ -1,13 +1,21 @@
 ﻿using BotWPF.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BotWPF.Bot.Core;
+using Discord.WebSocket;
+using MaterialDesignThemes.Wpf;
+using System.Diagnostics;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace BotWPF.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        public string UrlAvatar => BotDiscord.gI().ClientBot.CurrentUser.GetAvatarUrl();
+        public List<SocketGuild> ListGuilds => BotDiscord.gI().ClientBot.Guilds.ToList();
+
+        public MainViewModel()
+        {
+        }
     }
 }

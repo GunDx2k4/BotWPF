@@ -1,4 +1,6 @@
-﻿using BotWPF.ViewModels;
+﻿using BotWPF.Bot.Core;
+using BotWPF.ViewModels;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,7 @@ namespace BotWPF.Base
                 OnCurrentViewModelChanged();
             }
         }
+        public SnackbarMessageQueue BoundMessageQueue { get; } = new SnackbarMessageQueue();
 
         public event Action CurrentViewModelChanged;
 
@@ -45,6 +48,12 @@ namespace BotWPF.Base
         public void createMainView()
         {
             CurrentViewModel = new MainViewModel();
+
+        }
+
+        public void OnSendMessage(string message)
+        {
+            BoundMessageQueue.Enqueue(message);
         }
     }
 }
